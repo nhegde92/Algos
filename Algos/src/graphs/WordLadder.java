@@ -25,6 +25,8 @@ Explanation: The endWord "cog" is not in wordList, therefore there is no valid t
 
 /*
 Logic: add the first word in the queue. For every iteration for the size of the queue add qualifying words.
+Time: O(N * L²), where N = number of words, L = word length.
+Space: O(N + L²)
  */
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {

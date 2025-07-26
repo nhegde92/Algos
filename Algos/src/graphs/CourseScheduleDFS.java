@@ -33,39 +33,41 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CourseScheduleDFS {
-    List<Integer> order = new ArrayList<>();
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        if(numCourses < 2)
-                return true;
+        List<Integer> order = new ArrayList<>();
+        if (numCourses < 2)
+            return true;
         // init adj list
         HashMap<Integer, List<Integer>> adj = new HashMap<>();
-        int []vis = new int[numCourses];//0 = not visited, 1 = visiting 2 = processed
-        for(int i = 0; i<numCourses; i++){
+        int[] vis = new int[numCourses];//0 = not visited, 1 = visiting 2 = processed
+        for (int i = 0; i < numCourses; i++) {
             adj.put(i, new ArrayList<Integer>());
         }
-        for(int i = 0; i<prerequisites.length; i++){
+        for (int i = 0; i < prerequisites.length; i++) {
             int course = prerequisites[i][0];
             int preReq = prerequisites[i][1];
             adj.get(course).add(preReq);
         }
-        order.clear();
-        for(int i = 0; i<numCourses; i++){
-            if(vis[i] == 0 && hasCycle(i, vis, adj))
+
+        for (int i = 0; i < numCourses; i++) {
+            if (vis[i] == 0 && hasCycle(i, vis, adj, order))
                 return false;
 
         }
 
-        System.out.println("order is "+ order);
+        System.out.println("order is " + order);
         return true;
     }
-    public boolean hasCycle(int index, int[]vis, HashMap<Integer, List<Integer>> adj){
-        if(vis[index] == 1)
+
+    public boolean hasCycle(int index, int[] vis, HashMap<Integer, List<Integer>> adj, List<Integer> order) {
+        if (vis[index] == 1)
             return true;
         vis[index] = 1;
-        for(int i = 0; i<adj.get(index).size(); i++){
-            if(vis[adj.get(index).get(i)] == 2)
+        for (int i = 0; i < adj.get(index).size(); i++) {
+            if (vis[adj.get(index).get(i)] == 2)
                 continue;
-            if(hasCycle(adj.get(index).get(i), vis, adj))
+            if (hasCycle(adj.get(index).get(i), vis, adj, order))
                 return true;
         }
         vis[index] = 2;
@@ -73,11 +75,11 @@ public class CourseScheduleDFS {
         return false;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         CourseScheduleDFS obj = new CourseScheduleDFS();
-        System.out.println(obj.canFinish(2,new int[][]{{1,0}}));
-        System.out.println(obj.canFinish(2,new int[][]{{1,0},{0,1}}));
-        System.out.println(obj.canFinish(4, new int[][]{{1,0},{2,0},{3,1},{3,2}}));
+        System.out.println(obj.canFinish(2, new int[][]{{1, 0}}));
+        System.out.println(obj.canFinish(2, new int[][]{{1, 0}, {0, 1}}));
+        System.out.println(obj.canFinish(4, new int[][]{{1, 0}, {2, 0}, {3, 1}, {3, 2}}));
 
     }
 
