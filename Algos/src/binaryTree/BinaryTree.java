@@ -19,8 +19,10 @@ public class BinaryTree {
 
     public TreeNode insert(int[] arr) {
         //Nothing to insert;
-        if (arr == null || arr.length == 0)
+        if (arr == null || arr.length == 0) {
+            System.out.println("Nothing to insert.");
             return null;
+        }
 
         //Initialize head;
         head = new TreeNode(arr[0]);
@@ -45,7 +47,7 @@ public class BinaryTree {
         }
         System.out.println("Binary tree object inserted");
         this.printLevelOrder();
-        return head;
+        return this.head;
     }
 
     public void printPreOrder() {
@@ -113,6 +115,42 @@ public class BinaryTree {
                 queue.add(curr.right);
         }
     }
+
+    public int findMaxDepth(TreeNode root){
+        if(root == null)
+            return 0;
+        return 1+Math.max(findMaxDepth(root.left), findMaxDepth(root.right));
+    }
+
+    /*
+    Given two treees p & q check if thy are the same tree or not
+     */
+    public boolean checkSameTree(TreeNode p, TreeNode q){
+        if(p == null && q == null)
+            return true;
+        if(p == null || q == null )
+            return false;
+        if(p.value != q.value)
+            return false;
+        return checkSameTree(p.left, q.left) &&  checkSameTree(p.right, q.right);
+    }
+
+    public boolean isSymmetric(TreeNode root){
+        if(root == null)
+            return true;
+        return checkIsSymmetrical(root.left, root.right);
+    }
+
+    private boolean checkIsSymmetrical(TreeNode leftNode, TreeNode rightNode) {
+        if(leftNode == null && rightNode == null)
+            return true;
+        if(leftNode == null || rightNode == null)
+            return false;
+        if(leftNode.value != rightNode.value)
+                return false;
+        return checkIsSymmetrical(leftNode.left, rightNode.right) &&  checkIsSymmetrical(leftNode.right, rightNode.left);
+    }
+
 
 
 }
