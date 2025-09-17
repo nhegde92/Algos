@@ -40,18 +40,20 @@ public class MinInRotatedSortedArray {
         while (low <= high) {
             int mid = low + (high - low) / 2;
 
-            res = Math.min(res, nums[mid]);
-            //left and mid are same increment low.
-            if (nums[low] == nums[mid]) {
-                low++;
-            }
-            // right and mid are same decrement high
-            else if (nums[high] == nums[mid]) {
-                high--;
+            if (nums[low] < nums[high]) {
+                res = Math.min(res, nums[low]);
+                break;
             }
 
+            res = Math.min(res, nums[mid]);
+            //left and mid are same increment low.
+            while (low < mid && nums[low] == nums[mid]) low++;
+
+            // right and mid are same decrement high
+            while (high > mid && nums[high] == nums[mid]) high--;
+
             // left side is sorted, captured the min now go right
-            else if (nums[low] < nums[mid]) {
+            if (nums[low] <= nums[mid]) {
                 res = Math.min(nums[low], res);
                 low = mid + 1;
             }

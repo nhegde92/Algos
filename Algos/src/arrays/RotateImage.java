@@ -28,7 +28,12 @@ n == matrix.length == matrix[i].length
 
 
 /*
-This Java code rotates a given **n x n matrix by 90 degrees clockwise in-place**, using two main steps: **transpose** and **horizontal reversal**. The `transpose()` method flips the matrix over its main diagonal by swapping elements at `(i, j)` with `(j, i)`, converting rows into columns. Then, the `rotateMatrix()` method reverses each row, effectively achieving a 90-degree clockwise rotation. For example, given the matrix:
+This Java code rotates a given **n x n matrix by 90 degrees clockwise in-place**,
+using two main steps: **transpose** and **horizontal reversal**. The `transpose()` method flips the matrix over
+its main diagonal by swapping elements at `(i, j)` with `(j, i)`,
+ converting rows into columns. Then, the `rotateMatrix()`
+ method reverses each row, effectively achieving a 90-degree clockwise rotation.
+ For example, given the matrix:
 
 ```
 1 2 3
