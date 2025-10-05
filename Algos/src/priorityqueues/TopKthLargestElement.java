@@ -16,6 +16,24 @@ Example 2:
 Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
 Output: 4*/
 
+/*
+In min heap we are removing n-k+1 elements because we are removing from priority queue
+as soon as the size > k. we are removing smallest element there.
+ */
+
+/*
+ Min heap is preferred over all. If k is closer to n then may be
+ max heap is better. Furthermore, for max heap use n-k+1 as opposed
+ to k. The idea is the fist element will give the answer.
+
+ Time complexity O(NLogK)
+ for loop will be n, heapify will be log k.
+
+
+
+
+ */
+
 package priorityqueues;
 
 import java.util.PriorityQueue;
@@ -41,16 +59,5 @@ public class TopKthLargestElement {
     }
 }
 
-/*
- Min heap is preferred over all. If k is closer to n then may be
- max heap is better. Furthermore, for max heap use n-k+1 as opposed
- to k. The idea is the fist element will give the answer.
 
- Time complexity O(NLogK)
- for loop will be n, heapify will be log k.
-
-
-
-
- */
 

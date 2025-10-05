@@ -14,16 +14,26 @@ contains() O(n)
 toArray() O(n)
 
 
-A Priority Queue in Java is a data structure that stores elements in a way that the element with the highest (or lowest) priority is always at the front of the queue. Unlike a regular queue, where elements are processed in the order they arrive (FIFO – First In First Out), a priority queue ensures that elements with higher priority are dequeued before elements with lower priority, regardless of their insertion order.
+A Priority Queue in Java is a data structure that stores elements in a way that the element with
+the highest (or lowest) priority is always at the front of the queue.
+
+ Unlike a regular queue, where elements are processed in the order they arrive (FIFO – First In First Out),
+  a priority queue ensures that elements with higher priority are dequeued before elements with lower priority,
+   regardless of their insertion order.
 
 Key Characteristics:
-Element Ordering: The order of elements in the queue is determined by their priority. The priority is usually defined by a comparator or natural ordering of the elements.
+Element Ordering: The order of elements in the queue is determined by their priority.
+ The priority is usually defined by a comparator or natural ordering of the elements.
 
-Heap-based Implementation: Internally, a priority queue is often implemented using a heap, specifically a binary heap (either max-heap or min-heap). This allows for efficient insertion and removal of the highest (or lowest) priority elements.
+Heap-based Implementation: Internally, a priority queue is often implemented using a heap,
+specifically a binary heap (either max-heap or min-heap).
+ This allows for efficient insertion and removal of the highest (or lowest) priority elements.
 
 Dynamic: It adjusts dynamically as elements are added or removed.
 
-Not thread-safe: By default, PriorityQueue is not thread-safe. If you need thread safety, you must manually synchronize the queue or use alternatives like PriorityBlockingQueue from java.util.concurrent.
+Not thread-safe: By default, PriorityQueue is not thread-safe.
+ If you need thread safety, you must manually synchronize the queue or use alternatives like
+  PriorityBlockingQueue from java.util.concurrent.
 
 Basic Operations:
 Insertion (add() or offer()): Insert an element into the queue.
@@ -136,6 +146,18 @@ public class PriorityQueueExample {
     }
 }
 
+
+
+Operation	Time Complexity
+add(E e)	O(log n)
+offer(E e)	O(log n)
+peek()	O(1)
+poll()	O(log n)
+remove(Object o)	O(n)
+contains(Object o)	O(n)
+size()	O(1)
+isEmpty()	O(1)
+Iteration	O(n)
  */
 
 
