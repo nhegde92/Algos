@@ -111,7 +111,7 @@ public class EvaluateDivision {
         vis.add(src);
         for(int i = 0; i<adj.get(src).size(); i++){
             double result =  dfs(adj.get(src).get(i).dest, dest, adj, res*adj.get(src).get(i).value, vis);
-            if (result != -1.0) {
+            if (result != -1.0) { //Don't break early if -1.  explore all the other paths. if not -1 then we have the result
                 return result;
             }
 

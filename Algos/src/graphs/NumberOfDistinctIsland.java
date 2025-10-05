@@ -41,9 +41,9 @@ class NumberOfDistinctIsland {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == 1) {
-                    List<Integer> li = new ArrayList<>(); // Alternatively can use StringBuffer complexity:buffer too
+                    List<Integer> li = new ArrayList<>(); // Alternatively can use StringBuffer for faster complexity:
                     countIsland(i, j, li, grid, -1, -1);
-                    distinctSet.add(li);
+                    distinctSet.add(li); // no need to sort the list because the order of operations are same.
                 }
             }
         }
