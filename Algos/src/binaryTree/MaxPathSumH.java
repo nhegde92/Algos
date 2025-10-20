@@ -56,7 +56,7 @@ public class MaxPathSumH {
         int totalMax = Math.max(childMax + currNodeValue, currNodeValue);
         //Final result can be max of my max child or sum of by both child
         maxSum = Math.max(maxSum, Math.max(totalMax, left + right + currNodeValue));
-        return totalMax;
+        return totalMax; // Dont return left + right + currNodeValue because its forked. We only return from one side.
     }
 
     public static void main(String[] args) {

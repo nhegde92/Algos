@@ -1,4 +1,4 @@
-package BinarySearch;
+package binarysearch;
 /*
 A peak element is an element that is strictly greater than its neighbors.
 

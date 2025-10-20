@@ -76,7 +76,7 @@ Heap: [2, 3, 4]
 
 import java.util.PriorityQueue;
 
-import LinkedList.ListNode;
+import linkedlist.ListNode;
 
 public class MergeKSortedList {
 
